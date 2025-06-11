@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MockJun - 문제 생성</title>
+  <link rel="icon" href="./assets/favicon.ico" />
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="./assets/style.css">
+  <script type="module" src="./components/index.js"></script>
+  <script defer type="module" src="./apps/edit.js"></script>
+</head>
+<body class="dark">
+  <mock-header></mock-header>
+
+  <mock-banner status="online"></mock-banner>
+
+  <main>
+    <section>
+      <header>
+        <h1>새 문제 생성</h1>
+        <p>문제 정보를 입력하고 IndexedDB에 저장한 후 GitHub와 동기화합니다.</p>
+      </header>
+    </section>
+
+    <section>
+      <header>
+        <h2>문제 정보</h2>
+      </header>
+      <div class="column">
+        <label for="problem-title">문제 제목</label>
+        <input type="text" id="problem-title" placeholder="예: 두 수의 합" class="full-width" required>
+        
+        <label for="problem-description">문제 설명</label>
+        <textarea id="problem-description" placeholder="문제에 대한 자세한 설명을 입력하세요..." rows="6" class="full-width" required></textarea>
+        
+        <div class="row">
+          <div class="column">
+            <label for="problem-source">출처</label>
+            <input type="text" id="problem-source" placeholder="예: LeetCode #1" class="full-width">
+          </div>
+          <div class="column">
+            <label for="problem-difficulty">난이도</label>
+            <select id="problem-difficulty" class="full-width">
+              <option value="easy">쉬움</option>
+              <option value="medium" selected>보통</option>
+              <option value="hard">어려움</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <header>
+        <h2>문제 코드</h2>
+        <p>채점 기준이 되는 문제 코드를 작성하세요.</p>
+      </header>
+      <div class="column">
+        <textarea id="problem-code" spellcheck="false" placeholder="const { start, add, update, end } = context;&#10;const func = answer();" rows="15" class="full-width" required></textarea>
+      </div>
+    </section>
+
+    <section>
+      <header>
+        <h2>초기 답안 코드 (선택사항)</h2>
+        <p>사용자가 시작할 수 있는 초기 코드를 제공할 수 있습니다.</p>
+      </header>
+      <div class="column">
+        <textarea id="answer-code" spellcheck="false" placeholder="function solution(a, b) {&#10;  // 문제 코드를 작성하세요&#10;  return true;&#10;}" rows="10" class="full-width"></textarea>
+      </div>
+    </section>
+
+    <section>
+      <header>
+        <h2>저장 및 동기화</h2>
+      </header>
+      <div class="column">
+        <div class="row">
+          <button id="save-button" class="save-button full-width">
+            <span aria-hidden="true">💾</span>
+            <span>문제 저장</span>
+          </button>
+        </div>
+        <div class="row">
+          <small id="save-status" class="status-message"></small>
+        </div>
+        <div class="row">
+          <small>
+            <span aria-hidden="true">🔄</span>
+            <span>온라인 상태에서는 GitHub와 자동 동기화됩니다</span>
+          </small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <mock-sidebar></mock-sidebar>
+
+  <mock-footer></mock-footer>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{
+  "name": "MockJun",
+  "short_name": "MockJun",
+  "description": "GitHub 기반 코딩 문제 관리 및 풀이 플랫폼",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#3182f6",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/assets/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/assets/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "productivity", "utilities"],
+  "lang": "ko",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "문제 목록",
+      "short_name": "문제",
+      "description": "문제 목록으로 이동",
+      "url": "/list.html",
+      "icons": [{ "src": "/assets/favicon.ico", "sizes": "16x16" }]
+    },
+    {
+      "name": "설정",
+      "short_name": "설정",
+      "description": "설정 페이지로 이동",
+      "url": "/settings.html",
+      "icons": [{ "src": "/assets/favicon.ico", "sizes": "16x16" }]
+    }
+  ]
+} 

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문제 풀이 - MockJun</title>
+  <link rel="icon" href="./assets/favicon.ico" />
+  <link rel="stylesheet" href="./assets/style.css">
+  <script type="module" src="./components/index.js"></script>
+  <script type="module" src="./apps/problem.js"></script>
+  <script src="./assets/highlight.min.js"></script>
+</head>
+<body class="dark">
+  <mock-header></mock-header>
+  <mock-banner status="online"></mock-banner>
+
+  <main>
+    <section>
+      <header>
+        <h1 id="problem-title"></h1>
+      </header>
+      <div class="row">
+        <span class="difficulty medium" id="problem-difficulty">
+          <span aria-hidden="true">🔗</span>
+          <span id="problem-source"></span>
+        </span>
+        <small>
+          <span aria-hidden="true">🕒</span>
+          <span id="problem-updated-at"></span>
+        </small>
+      </div>
+    </section>
+
+    <section>
+      <header>
+        <h2>문제 설명</h2>
+      </header>
+      <div class="description">
+      </div>
+    </section>
+
+    <section>
+      <header>
+        <h2>코드 작성</h2>
+      </header>
+      <div class="column">
+        <div class="two-row">
+          <textarea id="code-editor" spellcheck="false" placeholder="여기에 코드를 작성하세요..."></textarea>
+          <pre><code id="highlight-preview" class="language-javascript"></code></pre>
+        </div>
+        <div class="row">
+          <button id="run-button" class="run-button">
+            <span aria-hidden="true">▶️</span>
+            <span>실행</span>
+          </button>
+          <button id="share-button">
+            <span aria-hidden="true">🔗</span>
+            <span>공유</span>
+          </button>
+          <button id="save-button" class="save-button">
+            <span aria-hidden="true">💾</span>
+            <span>저장</span>
+          </button>
+          <small id="save-status"></small>
+        </div>
+        <div class="row">
+          <small>
+            <span aria-hidden="true">🔄</span>
+            <span>로컬에 자동 저장됨</span>
+          </small>
+          <button id="reset-button">
+            <span aria-hidden="true">🔄</span>
+            <span>초기화</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <header>
+        <h2>실행 결과</h2>
+        <div id="result-meta" class="row">
+          <span class="difficulty">
+            <span aria-hidden="true"></span>
+            <span></span>
+          </span>
+          <small></small>
+        </div>
+      </header>
+      <div id="result-container">
+        <div id="result-placeholder">
+          <span aria-hidden="true">⏳</span>
+          <span>아직 실행되지 않았습니다. '실행' 버튼을 클릭하여 코드를 테스트해보세요.</span>
+        </div>
+        <div id="result-output" style="display: none;">
+          <table>
+            <caption>테스트 케이스 결과</caption>
+            <thead>
+              <tr>
+                <th>이름</th>
+                <th>결과</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <mock-footer></mock-footer>
+
+  <script>
+    const editor = document.getElementById('code-editor');
+    const preview = document.getElementById('highlight-preview');
+    const openBrackets = ['(', '{', '[', "\"", "'", "`"];
+    const closeBrackets = [')', '}', ']', "\"", "'", "`"];
+    const update = () => {
+      const code = editor.value;
+      preview.removeAttribute('data-highlighted');
+      preview.textContent = code;
+      hljs.highlightElement(preview);
+    };
+    editor.addEventListener('input', update);
+    document.addEventListener('DOMContentLoaded', () => {
+      editor.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab'){
+          e.preventDefault();
+          const input = document.activeElement;
+          const start = input.selectionStart;
+          const value = input.value;
+          const end = input.selectionEnd;
+          input.value = value.substring(0, start) + '  ' + value.substring(end);
+          input.selectionStart = input.selectionEnd = start + 2;
+          update();
+        }
+      });
+
+      editor.addEventListener("input", (e) => {
+        if (e.inputType === 'deleteContentBackward') { return; }
+        const input = document.activeElement;
+        const start = input.selectionStart;
+        const value = input.value;
+        if (openBrackets.includes(value[start - 1])) {
+          const openIndex = openBrackets.indexOf(value[start - 1]);
+          const closeBracket = closeBrackets[openIndex];
+          input.value = value.substring(0, start) + closeBracket + value.substring(start);
+          input.selectionStart = input.selectionEnd = start;
+          update();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

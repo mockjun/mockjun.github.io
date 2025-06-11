@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MockJun - GitHub 기반 코딩 문제 풀이 플랫폼</title>
+  <meta name="description" content="브라우저에서 코딩 문제를 풀고 GitHub와 실시간으로 동기화하세요. 순수 JavaScript로 구현된 경량 문제 관리 도구입니다.">
+  <link rel="icon" href="./assets/favicon.ico" />
+  <link rel="stylesheet" href="./assets/style.css">
+  <script type="module" defer src="./apps/start.js"></script>
+</head>
+<body class="dark">
+  <header>
+    <div role="status" aria-live="polite">첫 방문을 환영합니다! Github와 연동하여 즉시 시작하세요.</div>
+  </header>
+
+  <main>
+    <section>
+      <h1>
+        <span aria-hidden="true">🐱</span>
+        MockJun
+      </h1>
+      
+      <p>GitHub 기반 문제 관리 & 풀이 플랫폼</p>
+      <p>브라우저에서 문제를 풀고 GitHub와 동기화하세요.</p>
+
+      <ul>
+        <li>
+          <span aria-hidden="true">📦</span>
+          <strong>순수 JavaScript</strong>로 구현된 경량 도구
+        </li>
+        <li>
+          <span aria-hidden="true">💾</span>
+          <strong>IndexedDB</strong> 기반 오프라인 지원
+        </li>
+        <li>
+          <span aria-hidden="true">🔄</span>
+          GitHub와 <strong>실시간 동기화</strong>
+        </li>
+      </ul>
+
+      <hr>
+
+      <header class="center">
+        <h3>토큰 입력</h3>
+      </header>
+      <label for="github-token">GitHub Personal Token</label>
+      <input type="text" id="github-token" placeholder="ghp_..." class="full-width">
+
+      <button type="button" id="save-token-button" class="full-width">
+        <span aria-hidden="true">💾</span>
+        토큰 저장 및 시작
+      </button>
+    </section>
+
+    <aside>
+      <figure>
+        <blockquote>
+          <p>"순수 JavaScript로 구현된 가벼운 문제 풀이 도구. GitHub와의 완벽한 통합이 인상적입니다."</p>
+        </blockquote>
+        <figcaption>— <cite>엄준식</cite></figcaption>
+      </figure>
+    </aside>
+  </main>
+
+  <footer>
+    <p>© 2025 MockJun. GitHub Pages 호스팅 중.</p>
+    <nav class="footer-nav">
+      <a href="#" target="_blank" rel="noopener">GitHub</a>
+      <a href="#" target="_blank" rel="noopener">문서</a>
+    </nav>
+  </footer>
+</body>
+</html>

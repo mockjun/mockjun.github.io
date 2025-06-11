@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MockJun - 대시보드</title>
+  <meta name="description" content="GitHub 기반 코딩 문제 관리 및 풀이 플랫폼">
+  <link rel="icon" href="./assets/favicon.ico" />
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="./assets/style.css">
+  <script type="module" src="./components/index.js"></script>
+  <script defer type="module" src="./apps/index.js"></script>
+</head>
+
+<body class="dark">
+  <mock-header></mock-header>
+
+  <mock-banner status="syncing"></mock-banner>
+
+  <main>
+    <section>
+      <header>
+        <h2>최근 접근한 문제</h2>
+      </header>
+      
+      <div class="carousel mask" role="region" aria-label="최근 문제 목록">
+      </div>
+      
+      <button type="button" class="full-width" onclick="location.href = '/list.html'">
+        <span>전체보기</span>
+        <span aria-hidden="true">→</span>
+      </button>
+    </section>
+
+    <section>
+      <header>
+        <h2>전체 문제</h2>
+        <div>
+          <button type="button" onclick="location.href = '/edit.html'">
+            <span aria-hidden="true">➕︎</span>
+            <span>문제 추가</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="problem-grid" role="list">
+      </div>
+    </section>
+  </main>
+
+  
+  <mock-sidebar></mock-sidebar>
+
+  <mock-footer></mock-footer>
+</body>
+
+</html>
