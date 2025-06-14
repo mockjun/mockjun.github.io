@@ -39,10 +39,10 @@
       "icons": [{ "src": "/assets/favicon.ico", "sizes": "16x16" }]
     },
     {
-      "name": "설정",
-      "short_name": "설정",
-      "description": "설정 페이지로 이동",
-      "url": "/settings.html",
+      "name": "마이 페이지",
+      "short_name": "마이 페이지",
+      "description": "마이 페이지로 이동",
+      "url": "/profile.html",
       "icons": [{ "src": "/assets/favicon.ico", "sizes": "16x16" }]
     }
   ]
