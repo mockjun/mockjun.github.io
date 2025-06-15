@@ -17,6 +17,7 @@ export class AppBase {
   #dbModule = null;
 
   constructor(guard = true) {
+    if ("serviceWorker" in navigator) navigator.serviceWorker.register("../worker/service-worker.js");
     this.#bindLifecycleEvents(guard);
   }
 

@@ -2,7 +2,7 @@
   "name": "MockJun",
   "short_name": "MockJun",
   "description": "GitHub 기반 코딩 문제 관리 및 풀이 플랫폼",
-  "start_url": "/",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#0d1117",
   "theme_color": "#3182f6",
@@ -31,6 +31,13 @@
   "dir": "ltr",
   "prefer_related_applications": false,
   "shortcuts": [
+    {
+      "name": "MockJun",
+      "short_name": "MockJun",
+      "description": "홈",
+      "url": "/index.html",
+      "icons": [{ "src": "/assets/favicon.ico", "sizes": "16x16" }]
+    },
     {
       "name": "문제 목록",
       "short_name": "문제",
